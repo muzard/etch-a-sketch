@@ -3,6 +3,7 @@ body {
     display: flex;
     justify-content: stretch;
     align-items: stretch;
+    margin: 0px;
 }
 
 .topContainer {
@@ -10,16 +11,48 @@ body {
     display: flex;
     min-height: 100vh;
     min-width: 100vw;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .menubar {
-    width: 200px;
+    width: 160px;
     height: 100%;
     background-color: yellow;
 }
 
 .content {
-    width: 600px;
-    height: 600px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actualContent {
+    height: 60vh;
+    width: 60vw;
+    background-color: green;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+}
+
+#grid {
+    flex: 1;
+    max-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#actualGrid {
+    background-color: blue;
+    width: 45vh;
+    height: 45vh;
+}
+
+#selections {
+    min-height: 100%;
+    width: 200px;
+    background-color: black;
+    margin-left: auto;
 }
