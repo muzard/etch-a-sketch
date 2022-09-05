@@ -8,3 +8,10 @@ slider.oninput = function() {
   sliderValueText.textContent = `Grid size: ${this.value}x${this.value}`;
   sliderValue = this.value;
 }
+
+let colorpicker = document.getElementById("colorpicker");
+let colorpickerValue;
+
+slider.oninput = function() {
+  colorpickerValue = this.value()
+}
