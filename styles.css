@@ -45,9 +45,14 @@ body {
 }
 
 #actualGrid {
-    background-color: blue;
+    background-color: black;
     width: 45vh;
     height: 45vh;
+    display: flex;
+    padding: 5%;
+    border-radius: 5%;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 #selections {
@@ -131,4 +136,10 @@ body {
 #colorpicker::-moz-color-swatch {
   border-radius: 50%;
   border: 7px solid rgb(177, 177, 177);
+}
+
+.coloredBox {
+  width: 10px;
+  height: 10px;
+  background-color: wheat;
 }
