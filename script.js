@@ -13,12 +13,11 @@ slider.oninput = function() {
 }
 
 let colorpicker = document.getElementById("colorpicker");
-let colorpickerValue;
+let colorpickerValue = "#000000";
 
 /* fetch desired color */
-colorpicker.oninput = function() {
-  colorpickerValue = this.value()
-  console.log(colorpickerValue)
+function colorpickerChange(value) {
+  colorpickerValue = value
 }
 
 let actualGrid = document.getElementById("actualGrid")
@@ -26,15 +25,16 @@ let actualGrid = document.getElementById("actualGrid")
 /* adds and removes boxes to the actualGrid container */
 function populateBoard(size) {
   let squares = actualGrid.querySelectorAll("div")
-  squares.forEach(div => div.remove)
+  squares.forEach(div => div.remove())
 
   actualGrid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
   actualGrid.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
   for (let i = 0; i<size**2; i++) {
     let square = document.createElement("div");
-    square.style.backgroundColor = "red"
-    actualGrid.insertAdjacentElement("beforeend", square)
+    square.addEventListener('mouseover', colorChange);
+    square.style.backgroundColor = "white";
+    actualGrid.insertAdjacentElement("beforeend", square);
   }
 }
 
@@ -42,4 +42,28 @@ populateBoard(16);
 
 function changeSize(newSize) {
   populateBoard(newSize)
+}
+
+function colorChange() {
+  if (colorpickerValue == "random") {
+    this.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`
+  } else {
+    this.style.backgroundColor = colorpickerValue;
+  }
+}
+
+let randomColorButton = document.getElementById("random")
+
+function randomColor() {
+  colorpickerValue = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+  random.style.backgroundColor = colorpickerValue;
+}
+
+function resetGrid() {
+  let squares = actualGrid.querySelectorAll("div")
+  squares.forEach(div => div.style.backgroundColor = "white")
+}
+
+function randomPen() {
+  colorpickerValue = "random";
 }

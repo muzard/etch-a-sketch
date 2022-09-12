@@ -66,6 +66,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 12px;
+    gap: 10px;
   }
   
 /* The slider itself */
@@ -132,4 +133,28 @@ body {
 #colorpicker::-moz-color-swatch {
   border-radius: 50%;
   border: 7px solid rgb(177, 177, 177);
+}
+
+#random {
+  padding: 8px;
+  border: 2px solid white;
+  color: white;
+  background-color: black;
+  margin: 12px;
+}
+
+#reset {
+  padding: 8px;
+  border: 2px solid white;
+  color: white;
+  background-color: black;
+  margin: 12px;
+}
+
+#randomEach {
+  padding: 8px;
+  border: 2px solid white;
+  color: white;
+  background-color: black;
+  margin: 12px;
 }
