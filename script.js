@@ -9,7 +9,7 @@ let sliderValue;
 slider.oninput = function() {
   sliderValueText.textContent = `Grid size: ${this.value}x${this.value}`;
   sliderValue = this.value;
-  sliderAction()
+  populateBoard(sliderValue)
 }
 
 let colorpicker = document.getElementById("colorpicker");
@@ -18,20 +18,28 @@ let colorpickerValue;
 /* fetch desired color */
 colorpicker.oninput = function() {
   colorpickerValue = this.value()
+  console.log(colorpickerValue)
 }
 
 let actualGrid = document.getElementById("actualGrid")
 
 /* adds and removes boxes to the actualGrid container */
-function sliderAction() {
-  while (actualGrid.firstChild) {
-    actualGrid.removeChild(actualGrid.firstChild)
-  }
+function populateBoard(size) {
+  let squares = actualGrid.querySelectorAll("div")
+  squares.forEach(div => div.remove)
 
-  for (let i = sliderValue; i > 0; i--) {
-    let box = document.createElement('div')
-    box.setAttribute('class', 'coloredBox')
-    actualGrid.appendChild(box)
+  actualGrid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+  actualGrid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+  for (let i = 0; i<size**2; i++) {
+    let square = document.createElement("div");
+    square.style.backgroundColor = "red"
+    actualGrid.insertAdjacentElement("beforeend", square)
   }
-  alert("works")
+}
+
+populateBoard(16);
+
+function changeSize(newSize) {
+  populateBoard(newSize)
 }
