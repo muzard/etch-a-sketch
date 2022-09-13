@@ -18,6 +18,7 @@ let colorpickerValue = "#000000";
 /* fetch desired color */
 function colorpickerChange(value) {
   colorpickerValue = value
+  removeHighlights()
 }
 
 let actualGrid = document.getElementById("actualGrid")
@@ -59,7 +60,6 @@ let randomColorButton = document.getElementById("random")
 
 function randomColor() {
   colorpickerValue = `#${Math.floor(Math.random()*16777215).toString(16)}`;
-  random.style.backgroundColor = colorpickerValue;
 }
 
 function resetGrid() {
@@ -73,12 +73,12 @@ function randomPen() {
 
 let mouseDown = false;
 
-let gridListener = document.getElementById("grid")
+let bodyListener = document.querySelector("body")
 
-gridListener.addEventListener("mousedown", (e) => {
+bodyListener.addEventListener("mousedown", (e) => {
   mouseDown = true
 })
-gridListener.addEventListener("mouseup", (e) => {
+bodyListener.addEventListener("mouseup", (e) => {
   mouseDown = false
 })
 
@@ -91,5 +91,26 @@ function clickColor() {
     this.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`
   } else {
     this.style.backgroundColor = colorpickerValue;
+  }
+}
+
+buttons = document.querySelectorAll('button') // lisää eventListener colorpickeriin
+
+buttons.forEach(button => button.addEventListener("click", (e) => {
+  changeCircleColor()
+  removeHighlights()
+  button.classList.add('transform')
+
+}))
+
+function removeHighlights() {
+  buttons.forEach(button => button.classList.remove('transform'))
+}
+
+function changeCircleColor() {
+  if (colorpickerValue == "random") {
+    document.getElementById("colorpicker").value = "#FF00FF"
+  } else {
+    document.getElementById("colorpicker").value = colorpickerValue
   }
 }

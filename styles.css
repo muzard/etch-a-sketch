@@ -155,8 +155,9 @@ body {
   padding: 8px;
   border: 2px solid white;
   color: white;
-  background-color: black;
   margin: 12px;
+  background-image: url(./imgs/colorpalette.jpg);
+  background-size: 30%;
 }
 
 #eraser {
@@ -165,4 +166,13 @@ body {
   color: white;
   background-color: black;
   margin: 12px;
+}
+
+.transform {
+  transform: scale(1.2);
+  box-shadow: 0 0 1rem white;
+}
+
+button {
+  transition: all .5s ease;
 }
