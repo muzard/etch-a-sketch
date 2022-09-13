@@ -33,6 +33,7 @@ function populateBoard(size) {
   for (let i = 0; i<size**2; i++) {
     let square = document.createElement("div");
     square.addEventListener('mouseover', colorChange);
+    square.addEventListener('click', clickColor)
     square.style.backgroundColor = "white";
     actualGrid.insertAdjacentElement("beforeend", square);
   }
@@ -45,10 +46,12 @@ function changeSize(newSize) {
 }
 
 function colorChange() {
-  if (colorpickerValue == "random") {
-    this.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`
-  } else {
-    this.style.backgroundColor = colorpickerValue;
+  if (mouseDown) {
+    if (colorpickerValue == "random") {
+      this.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`
+    } else {
+      this.style.backgroundColor = colorpickerValue;
+    }
   }
 }
 
@@ -66,4 +69,27 @@ function resetGrid() {
 
 function randomPen() {
   colorpickerValue = "random";
+}
+
+let mouseDown = false;
+
+let gridListener = document.getElementById("grid")
+
+gridListener.addEventListener("mousedown", (e) => {
+  mouseDown = true
+})
+gridListener.addEventListener("mouseup", (e) => {
+  mouseDown = false
+})
+
+function eraser() {
+  colorpickerValue = "#FFFFFF"
+}
+
+function clickColor() {
+  if (colorpickerValue == "random") {
+    this.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`
+  } else {
+    this.style.backgroundColor = colorpickerValue;
+  }
 }
