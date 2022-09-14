@@ -1,5 +1,11 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 body {
-    background-image: url(./imgs/graffiti-gea4e5ae53_1920.jpg);
+    background-image: url(./imgs/low-poly-grid-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: flex;
     justify-content: stretch;
     align-items: stretch;
@@ -12,12 +18,7 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     justify-content: space-between;
-}
-
-.menubar {
-    width: 160px;
-    height: 100%;
-    background-color: yellow;
+    flex-direction: column;
 }
 
 .content {
@@ -25,15 +26,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 5vh;
 }
 
 .actualContent {
     height: 60vh;
     width: 60vw;
-    background-color: green;
+    background-color: #2709B1;
     display: flex;
     justify-content: stretch;
     align-items: center;
+    border: 4px solid white;
+    box-shadow: 10px 10px 10px 5px black;
 }
 
 #grid {
@@ -54,7 +59,7 @@ body {
 #selections {
     min-height: 100%;
     width: 250px;
-    background-color: black;
+    background-color: #7B09B1;
     margin-left: auto;
     display: flex;
     justify-content: center;
@@ -64,6 +69,7 @@ body {
     width: 100%; /* Width of the outside container */
     display: flex;
     align-items: center;
+    justify-content: space-around;
     flex-direction: column;
     padding: 12px;
     gap: 10px;
@@ -95,7 +101,7 @@ body {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 50%;
-  background: #04AA6D; /* Green background */
+  background: #2709B1; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -103,7 +109,7 @@ body {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   border-radius: 50%;
-  background: #04AA6D; /* Green background */
+  background: #2709B1; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -138,33 +144,24 @@ body {
 #random {
   padding: 8px;
   border: 2px solid white;
-  color: white;
-  background-color: black;
   margin: 12px;
 }
 
 #reset {
   padding: 8px;
   border: 2px solid white;
-  color: white;
-  background-color: black;
   margin: 12px;
 }
 
 #randomEach {
   padding: 8px;
   border: 2px solid white;
-  color: white;
   margin: 12px;
-  background-image: url(./imgs/colorpalette.jpg);
-  background-size: 30%;
 }
 
 #eraser {
   padding: 8px;
   border: 2px solid white;
-  color: white;
-  background-color: black;
   margin: 12px;
 }
 
@@ -175,4 +172,37 @@ body {
 
 button {
   transition: all .5s ease;
+  color: #220331;
+  background-color: #6240fa;
+  padding: 4px;
+}
+
+#problematicLabel {
+  color: #220331;
+}
+
+.footer {
+  width: 100%;
+  height: 5%;
+  background-color: #220331;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 64px;
+  color: #220331;
+}
+
+#sliderValue {
+  color: #220331;
+}
+
+#footerText {
+  color: #d3d3d3;
+}
+
+#link {
+  color: #6240fa;
 }

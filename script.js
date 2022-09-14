@@ -114,3 +114,8 @@ function changeCircleColor() {
     document.getElementById("colorpicker").value = colorpickerValue
   }
 }
+
+let resetButton = document.getElementById("reset")
+resetButton.addEventListener("transitionend", () => resetButton.classList.remove("transform"))
+
+randomColorButton.addEventListener("transitionend", () => randomColorButton.classList.remove("transform"))

@@ -11,8 +11,8 @@
 
 <body ondragstart="return false;" ondrop="return false;">
     <div class="topContainer">
-        <div class="menubar"></div>
         <div class="content">
+            <h1>Etch_a_sketch</h1>
             <div class="actualContent">
                 <div id="grid">
                     <div id="actualGrid"></div>
@@ -20,16 +20,19 @@
                 <div id="selections">
                     <div class="slidecontainer">
                         <input type="color" id="colorpicker" value="#000000" onchange="colorpickerChange(this.value)">
-                        <label for="colorpicker">Color</label>
+                        <label id="problematicLabel"for="colorpicker">Color</label>
                         <input type="range" min="16" max="64" value="16" class="slider" id="myRange" step="8" oninput="changeSize(this.value)">
                         <p id="sliderValue">Grid size: 16x16</p>
                         <button id="random" onclick="randomColor()">Random Color</button>
-                        <button id="randomEach" onclick="randomPen()">Random Color Each</button>
+                        <button id="randomEach" onclick="randomPen()">Rainbow</button>
                         <button id="reset" onclick="resetGrid()">Reset</button>
                         <button id="eraser" onclick="eraser()">Eraser</button>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="footer">
+            <p id="footerText">This project is part of the<a href="https://www.theodinproject.com/" id="link">The Odin Project</a> Curriculum</p>
         </div>
     </div>
     <script src="./script.js"></script>
